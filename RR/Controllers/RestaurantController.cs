@@ -15,5 +15,9 @@ namespace RR.Controllers
         {
             return View(_db.Restaurants.ToList());
         }
+        public ActionResult Create()
+        {
+            return View();
+        }
     }
 }
