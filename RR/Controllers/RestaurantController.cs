@@ -15,9 +15,18 @@ namespace RR.Controllers
         {
             return View(_db.Restaurants.ToList());
         }
-        public ActionResult Create()
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+       
+        public ActionResult Create(Restaurant restaurant)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                _db.Restaurants.Add(restaurant);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(restaurant);
         }
     }
 }
