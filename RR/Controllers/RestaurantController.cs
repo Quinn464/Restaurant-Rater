@@ -13,8 +13,15 @@ namespace RR.Controllers
         // GET: MVC
         public ActionResult Index()
         {
+            //error 
             return View(_db.Restaurants.ToList());
         }
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        //post
         [HttpPost]
         [ValidateAntiForgeryToken]
        
